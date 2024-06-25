@@ -1,0 +1,28 @@
+@if(articlesResponse$ | async; as response) {
+<main>
+  @for (article of response.articles; track article.id) {
+  <section>
+    <p-card [header]="article.author_id" class="card" [subheader]="article.title">
+      <ng-template pTemplate="header">
+        <img class="image" alt="Card" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg" />
+      </ng-template>
+      <p>
+        {{article.content}}
+      </p>
+      <p class="createDate">تاریخ ایجاد:{{article.created_at}}</p>
+      <p class="updateDate">تاریخ ویرایش:{{article.updated_at}}</p>
+      <ng-template pTemplate="footer">
+        <div class="flex gap-3 mt-1">
+          <p-button label="Cancel" severity="secondary" class="w-full" styleClass="w-full" />
+          <p-button label="Save" class="w-full" styleClass="w-full" />
+        </div>
+      </ng-template>
+    </p-card>
+  </section>
+  } @empty {
+  <span>Empty list of users</span>
+  }
+</main>
+<p-paginator (onPageChange)="onPageChange($event)" [first]="1" [rows]="10" [totalRecords]="response.total_count"
+  [rowsPerPageOptions]="[10, 20, 30]" />
+}
