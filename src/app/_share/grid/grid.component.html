@@ -1,0 +1,11 @@
+<ag-grid-angular
+  style="height: 500px;"
+  [class]="'ag-theme-quartz'"
+  [columnDefs]="gridOptions.columnDefs"
+  [defaultColDef]="gridOptions.defaultColDef"
+  [rowModelType]="'serverSide'"
+  [enableRtl]="true"
+  (gridReady)="onGridReady($event)"
+  (gridSizeChanged)="onSizeChange($event)"
+>
+</ag-grid-angular>

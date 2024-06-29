@@ -1,3 +1,9 @@
+export interface ApiInfoInterface{
+  url:string,
+  params:{
+    [key:string]:any
+  }
+}
 export interface ResponseApiInterface<T> {
   articles: T,
   last_page: number,
@@ -15,3 +21,4 @@ export interface ArticleInterface {
   "created_at": string,
   "updated_at": string
 }
+

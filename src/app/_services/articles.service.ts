@@ -18,4 +18,9 @@ export class ArticlesService {
       }
     })
   }
+
+  getArticle(articleId: string): Observable<ArticleInterface> {
+    console.log(articleId)
+    return this.http.get<ArticleInterface>(`http://127.0.0.1:8080/articles/${articleId}`)
+  }
 }
